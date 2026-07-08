@@ -11,17 +11,17 @@
         <nav>
             <div class="logo">Fitness Pro</div>
             <ul>
-                <li><a href="#auth-section" id="nav-auth">🔑 <span>Ingreso</span></a></li>
-                <li><a href="#training-section" id="nav-training" style="display: none;">💪 <span>Rutinas</span></a></li>
-                <li><a href="#planificador-section" id="nav-planificador" style="display: none;">🥗 <span>Nutrición</span></a></li>
-                <li><a href="#perfil-section" id="nav-perfil">👤 <span>Perfil</span></a></li>
+                <li><a href="#auth-section" id="nav-auth" data-target="auth-section">🔑 <span>Ingreso</span></a></li>
+                <li><a href="#training-section" id="nav-training" data-target="training-section" style="display: none;">💪 <span>Rutinas</span></a></li>
+                <li><a href="#planificador-section" id="nav-planificador" data-target="planificador-section" style="display: none;">🥗 <span>Nutrición</span></a></li>
+                <li><a href="#perfil-section" id="nav-perfil" data-target="perfil-section">👤 <span>Perfil</span></a></li>
                 <li><a href="#" id="nav-logout" style="display: none;">🚪 <span>Salir</span></a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="auth-section" class="active auth-section">
+        <section id="auth-section" class="view active auth-section">
             <div class="auth-hero">
                 <span class="auth-eyebrow">Fitness Pro</span>
                 <h2>Entrena con control total</h2>
@@ -51,7 +51,7 @@
             </div>
         </section>
 
-        <section id="training-section" style="display: none;">
+        <section id="training-section" class="view" style="display: none;">
             <h2>Módulo de Entrenamiento Personalizado</h2>
             <div id="training-dashboard">
                 <h3>¡Panel de Ejercicios de <span id="username-display"></span>!</h3>
@@ -59,14 +59,14 @@
             </div>
         </section>
 
-        <section id="planificador-section" style="display: none;">
+        <section id="planificador-section" class="view" style="display: none;">
             <h2>Planificador Nutricional Semanal Inteligente</h2>
             <div id="planificador-dashboard">
                 <div id="calendario-semanal-container"></div>
             </div>
         </section>
 
-        <section id="perfil-section" style="display: none;">
+        <section id="perfil-section" class="view" style="display: none;">
             <h2>Perfil de Usuario y Evaluación Corporal</h2>
             <div id="perfil-dashboard">
                 <h3>Bienvenido a tu perfil, <span id="perfil-username-display"></span></h3>

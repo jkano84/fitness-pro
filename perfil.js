@@ -168,6 +168,8 @@ const perfilModule = {
     }
 };
 
+window.perfilModule = perfilModule;
+
 document.addEventListener("DOMContentLoaded", () => {
     perfilModule.init();
 });
