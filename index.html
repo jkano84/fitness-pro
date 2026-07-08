@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Pro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Fitness Pro</div>
+            <ul>
+                <li><a href="#auth-section" id="nav-auth">🔑 <span>Ingreso</span></a></li>
+                <li><a href="#training-section" id="nav-training" style="display: none;">💪 <span>Rutinas</span></a></li>
+                <li><a href="#planificador-section" id="nav-planificador" style="display: none;">🥗 <span>Nutrición</span></a></li>
+                <li><a href="#perfil-section" id="nav-perfil">👤 <span>Perfil</span></a></li>
+                <li><a href="#" id="nav-logout" style="display: none;">🚪 <span>Salir</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="auth-section" class="active auth-section">
+            <div class="auth-hero">
+                <span class="auth-eyebrow">Fitness Pro</span>
+                <h2>Entrena con control total</h2>
+                <p>Accede a tus rutinas, nutricion y progreso desde un panel pensado para avanzar cada semana.</p>
+            </div>
+            <div class="auth-forms">
+                <div class="form-container auth-card auth-card-primary">
+                    <span class="auth-card-badge">Ya tengo cuenta</span>
+                    <h3>Iniciar Sesión</h3>
+                    <form id="login-form">
+                        <input type="text" id="login-username" placeholder="Nombre de Usuario" required>
+                        <input type="password" id="login-password" placeholder="Contraseña" required>
+                        <button type="submit">Entrar al Panel</button>
+                    </form>
+                    <p id="login-error" class="error-message"></p>
+                </div>
+                <div class="form-container auth-card">
+                    <span class="auth-card-badge">Nuevo usuario</span>
+                    <h3>Registrarse</h3>
+                    <form id="register-form">
+                        <input type="text" id="register-username" placeholder="Crear Usuario" required>
+                        <input type="password" id="register-password" placeholder="Crear Contraseña" required>
+                        <button type="submit">Crear Mi Cuenta</button>
+                    </form>
+                    <p id="register-error" class="error-message"></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="training-section" style="display: none;">
+            <h2>Módulo de Entrenamiento Personalizado</h2>
+            <div id="training-dashboard">
+                <h3>¡Panel de Ejercicios de <span id="username-display"></span>!</h3>
+                <div id="rutina-semanal-container"></div>
+            </div>
+        </section>
+
+        <section id="planificador-section" style="display: none;">
+            <h2>Planificador Nutricional Semanal Inteligente</h2>
+            <div id="planificador-dashboard">
+                <div id="calendario-semanal-container"></div>
+            </div>
+        </section>
+
+        <section id="perfil-section" style="display: none;">
+            <h2>Perfil de Usuario y Evaluación Corporal</h2>
+            <div id="perfil-dashboard">
+                <h3>Bienvenido a tu perfil, <span id="perfil-username-display"></span></h3>
+                
+                <div class="user-stats-summary">
+                    <h4 class="summary-title">📈 Resumen de Composición Corporal</h4>
+                    <div class="profile-grid-container">
+                        <div class="profile-column-main">
+                            <h5>Datos Primarios</h5>
+                            <p>• Edad: <span id="display-age">N/A</span> años</p>
+                            <p>• Peso: <span id="display-weight">N/A</span> kg</p>
+                            <p>• Estatura: <span id="display-height">N/A</span> cm</p>
+                            <p class="imc-highlight">• IMC Calculado: <span id="display-bmi">N/A</span></p>
+                        </div>
+                        <div class="profile-column-metrics">
+                            <h5>Medidas de Perímetro (Antropometría)</h5>
+                            <div class="sub-metrics-grid">
+                                <p>• Cintura: <span id="display-waist">N/A</span> cm</p>
+                                <p>• Cadera: <span id="display-hip">N/A</span> cm</p>
+                                <p>• Pecho: <span id="display-chest">N/A</span> cm</p>
+                                <p>• Cuello: <span id="display-neck">N/A</span> cm</p>
+                                <p>• B. Izquierdo: <span id="display-arm-left">N/A</span> cm</p>
+                                <p>• B. Derecho: <span id="display-arm-right">N/A</span> cm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="personal-data-container">
+                    <h3>Actualizar Datos Corporales (Harris-Benedict)</h3>
+                    <form id="update-personal-data-form" class="personal-data-form">
+                        <div class="form-grid-layout">
+                            <div class="form-group-column">
+                                <h5 class="column-subtitle">Variables de Entrada</h5>
+                                
+                                <label for="input-age">Edad (Años):</label>
+                                <input type="number" id="input-age" placeholder="Tu edad" required min="1" max="120">
+
+                                <label for="input-weight">Peso Actual (kg):</label>
+                                <input type="number" id="input-weight" placeholder="Peso en kg (Ej: 75.5)" step="0.1" required min="1">
+
+                                <label for="input-height">Estatura Actual (cm):</label>
+                                <input type="number" id="input-height" placeholder="Estatura en centímetros (Ej: 172)" required min="1">
+
+                                <label for="input-sex">Sexo Biológico:</label>
+                                <select id="input-sex" required>
+                                    <option value="">-- Seleccionar --</option>
+                                    <option value="hombre">Hombre</option>
+                                    <option value="mujer">Mujer</option>
+                                </select>
+
+                                <label for="input-activity">Nivel de Actividad Física Diario:</label>
+                                <select id="input-activity" required>
+                                    <option value="1.2">Sedentario (Poco o ningún ejercicio diario)</option>
+                                    <option value="1.375">Ligeramente activo (Ejercicio ligero de 1 a 3 días/semana)</option>
+                                    <option value="1.55">Moderadamente activo (Ejercicio moderado de 3 a 5 días/semana)</option>
+                                    <option value="1.725">Muy activo (Entrenamiento intenso de 6 a 7 días/semana)</option>
+                                    <option value="1.9">Extremadamente activo (Trabajo físico pesado o doble entreno diario)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group-column">
+                                <h5 class="column-subtitle">Perímetros Opcionales</h5>
+
+                                <label for="input-waist">Cintura (cm):</label>
+                                <input type="number" id="input-waist" placeholder="Medida de cintura" step="0.1" min="1">
+
+                                <label for="input-hip">Cadera (cm):</label>
+                                <input type="number" id="input-hip" placeholder="Medida de cadera" step="0.1" min="1">
+
+                                <label for="input-chest">Pecho (cm):</label>
+                                <input type="number" id="input-chest" placeholder="Medida de pecho" step="0.1" min="1">
+
+                                <label for="input-arm-left">Brazo Izquierdo (cm):</label>
+                                <input type="number" id="input-arm-left" placeholder="Medida brazo izquierdo" step="0.1" min="1">
+
+                                <label for="input-arm-right">Brazo Derecho (cm):</label>
+                                <input type="number" id="input-arm-right" placeholder="Medida brazo derecho" step="0.1" min="1">
+                                
+                                <label for="input-neck">Cuello (cm):</label>
+                                <input type="number" id="input-neck" placeholder="Medida de cuello" step="0.1" min="1">
+                            </div>
+                        </div>
+                        
+                        <div class="form-submit-container">
+                            <button type="submit" class="btn-submit-profile">Guardar Perfil y Calcular Metabolismo</button>
+                        </div>
+                    </form>
+                    <p id="personal-data-message" style="font-weight: bold; margin-top: 10px; color: var(--neon-green);"></p>
+                </div>
+
+                <div class="physical-changes-tracker" style="margin-top: 25px;">
+                    <h4>Historial de Cambios Físicos Guardados:</h4>
+                    <ul id="physical-changes-list"></ul>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <script src="auth.js"></script>
+    <script src="ejercicios_db.js"></script>
+    <script src="rutinas.js"></script>
+    <script src="platillos_db.js"></script> 
+    <script src="nutricion.js"></script>
+    <script src="planificador.js"></script>
+    <script src="perfil.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1110 @@
+/* ==========================================================================
+   FITTRACKER PRO - ESTILOS DE APLICACIÓN NATIVA ULTRA-MODERNA (RESPONSIVA)
+   ========================================================================== */
+
+:root {
+    --bg-main: #0a0f14;         
+    --bg-card: #121a22;         
+    --bg-input: #17212b;        
+    --neon-green: #34f5a6;      
+    --neon-green-hover: #22d98f;
+    --accent-blue: #38bdf8;     
+    --accent-orange: #ffb454;   
+    --accent-red: #ff5c7a;      
+    --text-main: #ffffff;       
+    --text-muted: #a9b7c6;      
+    --border-radius: 12px;      
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Reset y Base General */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(52, 245, 166, 0.14), transparent 32rem),
+        radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.12), transparent 28rem),
+        var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding-bottom: 80px; 
+}
+
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Header y Barra de Navegación Nativa */
+header {
+    background-color: var(--bg-card);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #2d2d2d;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    color: var(--text-main);
+}
+
+.logo::after {
+    content: ' PRO';
+    color: var(--neon-green);
+    font-size: 0.9rem;
+    font-weight: 900;
+    vertical-align: super;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+nav ul li a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: var(--neon-green);
+    background-color: rgba(0, 255, 0, 0.08);
+}
+
+/* Secciones e Interfaz de Contenedores */
+section {
+    background-color: var(--bg-card);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid #252525;
+}
+
+section h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 20px;
+    border-left: 4px solid var(--neon-green);
+    padding-left: 12px;
+}
+
+section h3 {
+    color: var(--neon-green);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Inputs y Selectores */
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 15px;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    background-color: var(--bg-input);
+    color: var(--text-main);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--neon-green);
+    box-shadow: 0 0 0 3px rgba(0, 255, 0, 0.15);
+}
+
+/* Botonera Maestra */
+button {
+    background-color: var(--neon-green);
+    color: #121212;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+button:hover {
+    background-color: var(--neon-green-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 255, 0, 0.2);
+}
+
+button:disabled, select:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.semana-tabs-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Formularios de Sesión */
+.auth-section {
+    position: relative;
+    overflow: hidden;
+    min-height: calc(100vh - 140px);
+    padding: 42px;
+    border: 1px solid rgba(52, 245, 166, 0.18);
+    background:
+        linear-gradient(135deg, rgba(18, 26, 34, 0.96), rgba(10, 15, 20, 0.9)),
+        radial-gradient(circle at 86% 14%, rgba(52, 245, 166, 0.18), transparent 18rem);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+}
+
+.auth-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: linear-gradient(to bottom, black, transparent 75%);
+}
+
+.auth-hero,
+.auth-forms {
+    position: relative;
+    z-index: 1;
+}
+
+.auth-hero {
+    max-width: 720px;
+    margin-bottom: 30px;
+}
+
+.auth-eyebrow,
+.auth-card-badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.auth-eyebrow {
+    color: #08100d;
+    background: linear-gradient(135deg, var(--neon-green), var(--accent-blue));
+    padding: 6px 12px;
+    margin-bottom: 14px;
+}
+
+.auth-section h2 {
+    max-width: 760px;
+    margin-bottom: 10px;
+    border-left: 0;
+    padding-left: 0;
+    font-size: 4.1rem;
+    line-height: 1.02;
+    letter-spacing: 0;
+}
+
+.auth-hero p {
+    max-width: 620px;
+    color: var(--text-muted);
+    font-size: 1.08rem;
+}
+
+.auth-forms {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.02);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border: 1px solid #2a2a2a;
+}
+
+.auth-card {
+    padding: 28px;
+    border-color: rgba(169, 183, 198, 0.14);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025)),
+        rgba(18, 26, 34, 0.82);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.26);
+    backdrop-filter: blur(16px);
+}
+
+.auth-card-primary {
+    border-color: rgba(52, 245, 166, 0.36);
+    box-shadow: 0 18px 50px rgba(52, 245, 166, 0.1);
+}
+
+.auth-card-badge {
+    color: var(--neon-green);
+    background-color: rgba(52, 245, 166, 0.1);
+    border: 1px solid rgba(52, 245, 166, 0.24);
+    padding: 5px 10px;
+    margin-bottom: 12px;
+}
+
+.auth-card h3 {
+    color: var(--text-main);
+    font-size: 1.45rem;
+    margin-bottom: 18px;
+}
+
+.auth-card input[type="text"],
+.auth-card input[type="password"] {
+    min-height: 52px;
+    border-color: rgba(169, 183, 198, 0.18);
+    background-color: rgba(10, 15, 20, 0.72);
+}
+
+.auth-card input::placeholder {
+    color: #7f8c99;
+}
+
+.auth-card button {
+    width: 100%;
+    min-height: 52px;
+    margin-top: 2px;
+    color: #06110d;
+    background: linear-gradient(135deg, var(--neon-green), var(--accent-blue));
+    box-shadow: 0 12px 26px rgba(52, 245, 166, 0.18);
+}
+
+.auth-card button:hover {
+    background: linear-gradient(135deg, var(--neon-green-hover), #22a8e8);
+}
+
+.error-message {
+    min-height: 22px;
+    margin-top: 12px;
+    color: var(--accent-red);
+    font-weight: 700;
+}
+
+/* Rutinas y Listas */
+.routine-module {
+    color: var(--text-main);
+}
+
+.routine-shell {
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
+        rgba(10, 15, 20, 0.7);
+    border: 1px solid rgba(169, 183, 198, 0.14);
+    border-radius: var(--border-radius);
+    padding: 22px;
+}
+
+.routine-header,
+.routine-title-view,
+.routine-exercise-head,
+.routine-title-edit,
+.routine-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.routine-header {
+    margin-bottom: 20px;
+}
+
+.routine-header h3,
+.routine-exercise-card h4,
+.routine-builder h4 {
+    margin: 0;
+    color: var(--text-main);
+}
+
+.routine-kicker,
+.routine-label {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.routine-calories {
+    min-width: 180px;
+    padding: 14px 16px;
+    border: 1px solid rgba(52, 245, 166, 0.24);
+    border-radius: 10px;
+    background-color: rgba(52, 245, 166, 0.08);
+    text-align: right;
+}
+
+.routine-calories span {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+}
+
+.routine-calories strong {
+    color: var(--neon-green);
+    font-size: 1.45rem;
+}
+
+.routine-nav {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.routine-nav-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+    gap: 8px;
+}
+
+.routine-days {
+    grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+}
+
+.routine-nav-btn,
+.routine-btn-ghost,
+.routine-btn-danger {
+    min-height: 42px;
+    padding: 10px 14px;
+    border: 1px solid rgba(169, 183, 198, 0.14);
+    color: var(--text-main);
+    background-color: rgba(255, 255, 255, 0.045);
+}
+
+.routine-nav-btn:hover,
+.routine-btn-ghost:hover {
+    color: var(--neon-green);
+    background-color: rgba(52, 245, 166, 0.1);
+}
+
+.routine-nav-btn.is-active {
+    color: #06110d;
+    border-color: transparent;
+    background: linear-gradient(135deg, var(--neon-green), var(--accent-blue));
+    box-shadow: 0 12px 24px rgba(52, 245, 166, 0.14);
+}
+
+.routine-title-card,
+.routine-planner,
+.routine-builder,
+.routine-exercise-card,
+.routine-empty {
+    margin-bottom: 16px;
+    padding: 18px;
+    border: 1px solid rgba(169, 183, 198, 0.14);
+    border-radius: var(--border-radius);
+    background-color: rgba(255, 255, 255, 0.035);
+}
+
+.routine-title-card h3 {
+    margin: 4px 0 0;
+    color: var(--text-main);
+}
+
+.routine-title-edit {
+    margin-top: 8px;
+}
+
+.routine-title-edit input {
+    margin-bottom: 0;
+}
+
+.routine-planner {
+    background-color: rgba(23, 33, 43, 0.7);
+}
+
+.routine-selector-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.routine-select {
+    margin-top: 8px;
+}
+
+.routine-builder {
+    margin-top: 16px;
+    margin-bottom: 0;
+    border-color: rgba(52, 245, 166, 0.22);
+}
+
+.routine-builder p,
+.routine-exercise-card p {
+    margin: 4px 0 0;
+    color: var(--text-muted);
+}
+
+.routine-builder-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+}
+
+.routine-builder-grid label {
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+.routine-builder-grid input {
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.routine-sets {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.routine-set-row {
+    display: grid;
+    grid-template-columns: 52px 1fr 110px;
+    align-items: center;
+    gap: 10px;
+}
+
+.routine-set-row strong {
+    color: var(--neon-green);
+}
+
+.routine-set-row input,
+.routine-set-row select {
+    margin-bottom: 0;
+}
+
+.routine-list {
+    display: grid;
+    gap: 12px;
+}
+
+.routine-exercise-card {
+    margin-bottom: 0;
+}
+
+.routine-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.routine-btn-danger {
+    color: #ffd5dc;
+    background-color: rgba(255, 92, 122, 0.12);
+    border-color: rgba(255, 92, 122, 0.22);
+}
+
+.routine-btn-danger:hover {
+    color: #ffffff;
+    background-color: rgba(255, 92, 122, 0.24);
+    box-shadow: 0 4px 12px rgba(255, 92, 122, 0.16);
+}
+
+.routine-checklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.routine-check {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 12px;
+    border: 1px solid rgba(169, 183, 198, 0.14);
+    border-radius: 8px;
+    color: var(--text-main);
+    background-color: rgba(10, 15, 20, 0.55);
+    cursor: pointer;
+}
+
+.routine-check input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--neon-green);
+}
+
+.routine-check.is-done {
+    color: var(--neon-green);
+    border-color: rgba(52, 245, 166, 0.32);
+    background-color: rgba(52, 245, 166, 0.08);
+}
+
+.routine-empty {
+    margin-bottom: 0;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+/* Nutricion */
+.nutrition-module {
+    padding: 22px;
+    border: 1px solid rgba(169, 183, 198, 0.14);
+    border-radius: var(--border-radius);
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
+        rgba(10, 15, 20, 0.72);
+}
+
+.nutrition-header {
+    display: grid;
+    grid-template-columns: 1fr minmax(180px, 230px) minmax(180px, 240px);
+    gap: 14px;
+    align-items: stretch;
+    margin-bottom: 20px;
+}
+
+.nutrition-header h3 {
+    margin: 0;
+    color: var(--text-main);
+}
+
+.nutrition-header p,
+.nutrition-target small {
+    margin: 4px 0 0;
+    color: var(--text-muted);
+}
+
+.nutrition-kicker {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.nutrition-target {
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(169, 183, 198, 0.14);
+    background-color: rgba(255, 255, 255, 0.045);
+}
+
+.nutrition-target span,
+.nutrition-target small {
+    display: block;
+}
+
+.nutrition-target strong {
+    display: block;
+    font-size: 1.65rem;
+    line-height: 1.15;
+}
+
+.nutrition-target.is-low {
+    border-color: rgba(255, 180, 84, 0.35);
+    background-color: rgba(255, 180, 84, 0.1);
+}
+
+.nutrition-target.is-low strong {
+    color: var(--accent-orange);
+}
+
+.nutrition-target.is-ok {
+    border-color: rgba(52, 245, 166, 0.35);
+    background-color: rgba(52, 245, 166, 0.1);
+}
+
+.nutrition-target.is-ok strong,
+.nutrition-target.is-real strong {
+    color: var(--neon-green);
+}
+
+.nutrition-target.is-high {
+    border-color: rgba(255, 92, 122, 0.35);
+    background-color: rgba(255, 92, 122, 0.1);
+}
+
+.nutrition-target.is-high strong {
+    color: var(--accent-red);
+}
+
+.nutrition-target.is-free {
+    border-color: rgba(56, 189, 248, 0.35);
+    background-color: rgba(56, 189, 248, 0.1);
+}
+
+.nutrition-target.is-free strong {
+    color: var(--accent-blue);
+}
+
+.nutrition-nav {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.nutrition-nav-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(98px, 1fr));
+    gap: 8px;
+}
+
+.nutrition-days {
+    grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+}
+
+.nutrition-nav-btn {
+    min-height: 42px;
+    color: var(--text-main);
+    border: 1px solid rgba(169, 183, 198, 0.14);
+    background-color: rgba(255, 255, 255, 0.045);
+}
+
+.nutrition-nav-btn.is-active {
+    color: #06110d;
+    border-color: transparent;
+    background: linear-gradient(135deg, var(--neon-green), var(--accent-blue));
+}
+
+.nutrition-week-actions,
+.nutrition-free-day,
+.nutrition-extra-card,
+.nutrition-shopping {
+    margin-bottom: 16px;
+    padding: 16px;
+    border: 1px solid rgba(169, 183, 198, 0.14);
+    border-radius: var(--border-radius);
+    background-color: rgba(255, 255, 255, 0.035);
+}
+
+.nutrition-free-day {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.nutrition-free-day input,
+.nutrition-check input,
+.nutrition-shopping-item input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--neon-green);
+}
+
+.nutrition-meals-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.nutrition-meal-card {
+    padding: 16px;
+    border: 1px solid rgba(169, 183, 198, 0.14);
+    border-radius: var(--border-radius);
+    background-color: rgba(23, 33, 43, 0.72);
+}
+
+.nutrition-meal-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.nutrition-meal-head strong {
+    color: var(--neon-green);
+    font-size: 1.2rem;
+}
+
+.nutrition-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+.nutrition-meal-grid {
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    gap: 10px;
+}
+
+.nutrition-meal-grid select,
+.nutrition-extra-form input {
+    margin-bottom: 0;
+}
+
+.nutrition-ingredients {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(169, 183, 198, 0.12);
+}
+
+.nutrition-ingredients ul {
+    display: grid;
+    gap: 7px;
+    margin-top: 8px;
+}
+
+.nutrition-ingredient-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 0;
+    padding: 8px 10px;
+    border-color: rgba(169, 183, 198, 0.1);
+    background-color: rgba(10, 15, 20, 0.45);
+}
+
+.nutrition-ingredient-item strong {
+    color: var(--neon-green);
+}
+
+.nutrition-extra-form {
+    display: grid;
+    grid-template-columns: 1fr 120px auto;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.nutrition-extra-list {
+    margin-top: 12px;
+}
+
+.nutrition-extra-item,
+.nutrition-shopping-item {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    align-items: center;
+}
+
+.nutrition-btn-ghost {
+    color: var(--text-main);
+    border: 1px solid rgba(169, 183, 198, 0.14);
+    background-color: rgba(255, 255, 255, 0.045);
+}
+
+.nutrition-shopping-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.nutrition-shopping h4 {
+    margin-bottom: 0;
+}
+
+.nutrition-shopping-group {
+    margin-top: 14px;
+}
+
+.nutrition-shopping-group h5 {
+    margin-bottom: 8px;
+    color: var(--neon-green);
+}
+
+.nutrition-shopping-item {
+    grid-template-columns: auto 1fr auto;
+    margin-bottom: 8px;
+    padding: 10px 12px;
+    border: 1px solid rgba(169, 183, 198, 0.12);
+    border-radius: 8px;
+    background-color: rgba(10, 15, 20, 0.5);
+}
+
+.routine-container {
+    background-color: var(--bg-card);
+    border: 1px solid #2d2d2d;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+ul { list-style: none; }
+
+li {
+    background-color: var(--bg-input);
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #2d2d2d;
+    transition: var(--transition);
+}
+
+.chart-container {
+    background-color: var(--bg-card);
+    border: 1px solid #2d2d2d;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    position: relative;
+}
+
+/* ==========================================================================
+   INTERFAZ DE PERFIL - RESUMEN EN DOS COLUMNAS
+   ========================================================================== */
+.user-stats-summary {
+    background-color: var(--bg-card) !important;
+    padding: 20px !important;
+    border-radius: var(--border-radius) !important;
+    border-left: 5px solid var(--neon-green) !important;
+    margin-bottom: 25px;
+}
+
+.summary-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.profile-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; 
+    gap: 25px;
+    align-items: start;
+}
+
+.profile-column-main h5, 
+.profile-column-metrics h5,
+.column-subtitle {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 4px;
+}
+
+.profile-column-main p,
+.profile-column-metrics p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #e0e0e0;
+}
+
+.imc-highlight {
+    margin-top: 15px;
+    padding: 8px 12px;
+    background-color: rgba(59, 130, 246, 0.1);
+    border-radius: 6px;
+    border-left: 3px solid var(--accent-blue);
+    font-weight: bold;
+}
+
+.sub-metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 15px;
+}
+
+/* ==========================================================================
+   NUEVA REJILLA MAESTRA PARA EL FORMULARIO DE CAPTURA (DOS COLUMNAS)
+   ========================================================================== */
+.form-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.form-group-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-submit-container {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.btn-submit-profile {
+    width: auto !important; /* Mantiene el tamaño compacto en web */
+    padding: 14px 35px;
+    font-size: 1.05rem;
+}
+
+/* Media Queries de Adaptabilidad */
+@media (max-width: 900px) {
+    main { margin: 15px auto; padding: 0 12px; }
+    section { padding: 20px; margin-bottom: 15px; }
+    .auth-section { padding: 30px; }
+    .auth-section h2 { font-size: 3.1rem; }
+}
+
+@media (max-width: 768px) {
+    .form-grid-layout {
+        grid-template-columns: 1fr; /* Colapsa el formulario a una sola columna en pantallas pequeñas */
+        gap: 20px;
+    }
+    .routine-header,
+    .routine-title-view,
+    .routine-exercise-head,
+    .routine-title-edit,
+    .routine-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+    .routine-calories {
+        width: 100%;
+        text-align: left;
+    }
+    .routine-builder-grid {
+        grid-template-columns: 1fr;
+    }
+    .routine-selector-grid {
+        grid-template-columns: 1fr;
+    }
+    .nutrition-header,
+    .nutrition-meals-grid {
+        grid-template-columns: 1fr;
+    }
+    .nutrition-extra-form {
+        grid-template-columns: 1fr;
+    }
+    .routine-set-row {
+        grid-template-columns: 44px 1fr 92px;
+    }
+    .btn-submit-profile {
+        width: 100% !important; /* Botón completo para celulares */
+    }
+}
+
+@media (max-width: 650px) {
+    .profile-grid-container {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+    .sub-metrics-grid {
+        grid-template-columns: 1fr; 
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        width: 100%;
+        border-top: 1px solid #2d2d2d;
+        border-bottom: none;
+        padding: 5px 0;
+        box-shadow: 0 -4px 16px rgba(0,0,0,0.6);
+    }
+    nav { padding: 5px 10px; justify-content: center; }
+    .logo { display: none; }
+    nav ul { width: 100%; justify-content: space-around; gap: 0; }
+    nav ul li a {
+        font-size: 0.8rem;
+        padding: 10px 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        font-weight: 700;
+    }
+    .auth-forms { grid-template-columns: 1fr; }
+    .auth-section {
+        min-height: auto;
+        padding: 24px 18px;
+    }
+    .auth-section h2 {
+        font-size: 2.25rem;
+    }
+    .auth-hero p {
+        font-size: 1rem;
+    }
+    .auth-card {
+        padding: 22px;
+    }
+    .routine-shell {
+        padding: 14px;
+    }
+    .routine-nav-row,
+    .routine-days {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .routine-checklist {
+        grid-template-columns: 1fr;
+    }
+    .nutrition-module {
+        padding: 14px;
+    }
+    .nutrition-nav-row,
+    .nutrition-days {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .nutrition-meal-head,
+    .nutrition-meal-grid {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+    .nutrition-extra-item {
+        grid-template-columns: 1fr;
+    }
+    .nutrition-shopping-head {
+        align-items: stretch;
+        flex-direction: column;
+    }
+    .nutrition-ingredient-item {
+        grid-template-columns: 1fr;
+    }
+    .routine-set-row {
+        grid-template-columns: 1fr;
+    }
+    .routine-set-row strong {
+        margin-top: 4px;
+    }
+    button { width: 100%; }
+}
